@@ -4,16 +4,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-// Aerospike Client Imports (for Enum types)
 import com.aerospike.client.query.IndexType;
 
 // Spring Data Aerospike Imports
 import org.springframework.data.aerospike.mapping.Document;
 import org.springframework.data.aerospike.mapping.Field;
-import org.springframework.data.annotation.Id;           // IMPORTANT: Use this generic Spring Id
+import org.springframework.data.annotation.Id;
 import org.springframework.data.aerospike.annotation.Indexed;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Document(collection = "users")
 public class User {
 
@@ -33,14 +34,6 @@ public class User {
     @Field("experience")
     @Indexed(type = IndexType.NUMERIC, name = "exp_index")
     private int experience;
-
-    public User(int id, String name, String email, String department, int experience) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.department = department;
-        this.experience = experience;
-    }
 
     public int getId() {
         return id;

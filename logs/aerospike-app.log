@@ -1,0 +1,135 @@
+2026-02-15T16:40:23.028+05:30  INFO 15512 --- [aerospike] [main] c.l.aerospike.AerospikeApplication       : Starting AerospikeApplication using Java 21.0.7 with PID 15512 (D:\AerospikeLearning\target\classes started by Dell in D:\AerospikeLearning)
+2026-02-15T16:40:23.031+05:30  INFO 15512 --- [aerospike] [main] c.l.aerospike.AerospikeApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-02-15T16:40:23.105+05:30  INFO 15512 --- [aerospike] [main] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file D:\AerospikeLearning\compose.yaml
+2026-02-15T16:40:24.201+05:30  WARN 15512 --- [aerospike] [main] .s.b.d.c.l.DockerComposeLifecycleManager : No services defined in Docker Compose file D:\AerospikeLearning\compose.yaml with active profiles []
+2026-02-15T16:40:24.645+05:30  INFO 15512 --- [aerospike] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Aerospike repositories in DEFAULT mode.
+2026-02-15T16:40:24.698+05:30  INFO 15512 --- [aerospike] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 1 Aerospike repository interface.
+2026-02-15T16:40:25.455+05:30  INFO 15512 --- [aerospike] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-02-15T16:40:25.475+05:30  INFO 15512 --- [aerospike] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-15T16:40:25.475+05:30  INFO 15512 --- [aerospike] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2026-02-15T16:40:25.557+05:30  INFO 15512 --- [aerospike] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-02-15T16:40:25.558+05:30  INFO 15512 --- [aerospike] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1341 ms
+2026-02-15T16:40:25.801+05:30  WARN 15512 --- [aerospike] [main] o.s.data.convert.CustomConversions       : Registering converter from class java.util.Calendar to interface java.util.Map as writing converter although it doesn't convert to a store-supported type; You might want to check your annotation setup at the converter implementation
+2026-02-15T16:40:25.802+05:30  WARN 15512 --- [aerospike] [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class java.util.Calendar as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2026-02-15T16:40:26.324+05:30  INFO 15512 --- [aerospike] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2026-02-15T16:40:27.352+05:30  INFO 15512 --- [aerospike] [main] i.AerospikePersistenceEntityIndexCreator : Installed aerospike index: AerospikeIndexDefinition(name=exp_index, bin=experience, type=NUMERIC, collectionType=DEFAULT, entityClass=class com.learning.aerospike.repository.User, ctx=null) successfully.
+2026-02-15T16:40:28.379+05:30  INFO 15512 --- [aerospike] [main] i.AerospikePersistenceEntityIndexCreator : Installed aerospike index: AerospikeIndexDefinition(name=dept_index, bin=dept, type=STRING, collectionType=DEFAULT, entityClass=class com.learning.aerospike.repository.User, ctx=null) successfully.
+2026-02-15T16:40:28.387+05:30  INFO 15512 --- [aerospike] [main] c.l.aerospike.AerospikeApplication       : Started AerospikeApplication in 5.917 seconds (process running for 6.348)
+2026-02-15T16:40:47.419+05:30  INFO 15512 --- [aerospike] [http-nio-8081-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-15T16:40:47.420+05:30  INFO 15512 --- [aerospike] [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-15T16:40:47.425+05:30  INFO 15512 --- [aerospike] [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2026-02-15T16:40:47.773+05:30 ERROR 15512 --- [aerospike] [http-nio-8081-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalArgumentException: Id must not be null!] with root cause
+
+java.lang.IllegalArgumentException: Id must not be null!
+	at org.springframework.util.Assert.notNull(Assert.java:181) ~[spring-core-6.2.2.jar:6.2.2]
+	at org.springframework.data.aerospike.convert.MappingAerospikeReadConverter.getIdValue(MappingAerospikeReadConverter.java:104) ~[spring-data-aerospike-4.6.0.jar:na]
+	at org.springframework.data.aerospike.convert.MappingAerospikeReadConverter$RecordReadingPropertyValueProvider.getPropertyValue(MappingAerospikeReadConverter.java:270) ~[spring-data-aerospike-4.6.0.jar:na]
+	at org.springframework.data.aerospike.convert.MappingAerospikeReadConverter.lambda$convertProperties$0(MappingAerospikeReadConverter.java:119) ~[spring-data-aerospike-4.6.0.jar:na]
+	at org.springframework.data.mapping.model.BasicPersistentEntity.doWithProperties(BasicPersistentEntity.java:320) ~[spring-data-commons-3.4.2.jar:3.4.2]
+	at org.springframework.data.aerospike.convert.MappingAerospikeReadConverter.convertProperties(MappingAerospikeReadConverter.java:112) ~[spring-data-aerospike-4.6.0.jar:na]
+	at org.springframework.data.aerospike.convert.MappingAerospikeReadConverter.read(MappingAerospikeReadConverter.java:97) ~[spring-data-aerospike-4.6.0.jar:na]
+	at org.springframework.data.aerospike.convert.MappingAerospikeConverter.read(MappingAerospikeConverter.java:78) ~[spring-data-aerospike-4.6.0.jar:na]
+	at org.springframework.data.aerospike.core.BaseAerospikeTemplate.mapToEntity(BaseAerospikeTemplate.java:164) ~[spring-data-aerospike-4.6.0.jar:na]
+	at org.springframework.data.aerospike.core.BaseAerospikeTemplate.mapToEntity(BaseAerospikeTemplate.java:156) ~[spring-data-aerospike-4.6.0.jar:na]
+	at org.springframework.data.aerospike.core.AerospikeTemplate.lambda$findUsingQueryWithDistinctPredicate$15(AerospikeTemplate.java:1015) ~[spring-data-aerospike-4.6.0.jar:na]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179) ~[na:na]
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133) ~[na:na]
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1939) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682) ~[na:na]
+	at org.springframework.data.aerospike.repository.query.AerospikePartTreeQuery.execute(AerospikePartTreeQuery.java:84) ~[spring-data-aerospike-4.6.0.jar:na]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.4.2.jar:3.4.2]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.4.2.jar:3.4.2]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:170) ~[spring-data-commons-3.4.2.jar:3.4.2]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:149) ~[spring-data-commons-3.4.2.jar:3.4.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.2.jar:6.2.2]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.2.jar:6.2.2]
+	at jdk.proxy2/jdk.proxy2.$Proxy66.findByDepartment(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-6.2.2.jar:6.2.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.2.2.jar:6.2.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.2.2.jar:6.2.2]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138) ~[spring-tx-6.2.2.jar:6.2.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.2.jar:6.2.2]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.2.jar:6.2.2]
+	at jdk.proxy2/jdk.proxy2.$Proxy66.findByDepartment(Unknown Source) ~[na:na]
+	at com.learning.aerospike.service.UserService.getUsersByDepartment(UserService.java:29) ~[classes/:na]
+	at com.learning.aerospike.controller.UserController.getUsersByDept(UserController.java:50) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257) ~[spring-web-6.2.2.jar:6.2.2]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190) ~[spring-web-6.2.2.jar:6.2.2]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.2.jar:6.2.2]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986) ~[spring-webmvc-6.2.2.jar:6.2.2]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891) ~[spring-webmvc-6.2.2.jar:6.2.2]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.2.jar:6.2.2]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088) ~[spring-webmvc-6.2.2.jar:6.2.2]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978) ~[spring-webmvc-6.2.2.jar:6.2.2]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.2.jar:6.2.2]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.2.2.jar:6.2.2]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.34.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.2.jar:6.2.2]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.34.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.34.jar:10.1.34]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.2.jar:6.2.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.2.jar:6.2.2]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.2.jar:6.2.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.2.jar:6.2.2]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.2.jar:6.2.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.2.jar:6.2.2]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.34.jar:10.1.34]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2026-02-15T16:43:47.374+05:30  INFO 15512 --- [aerospike] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-15T16:43:47.400+05:30  INFO 15512 --- [aerospike] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2026-02-15T16:47:48.171+05:30  INFO 8404 --- [aerospike] [main] c.l.aerospike.AerospikeApplication       : Starting AerospikeApplication using Java 21.0.7 with PID 8404 (D:\AerospikeLearning\target\classes started by Dell in D:\AerospikeLearning)
+2026-02-15T16:47:48.176+05:30  INFO 8404 --- [aerospike] [main] c.l.aerospike.AerospikeApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-02-15T16:47:48.325+05:30  INFO 8404 --- [aerospike] [main] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file D:\AerospikeLearning\compose.yaml
+2026-02-15T16:47:49.370+05:30  WARN 8404 --- [aerospike] [main] .s.b.d.c.l.DockerComposeLifecycleManager : No services defined in Docker Compose file D:\AerospikeLearning\compose.yaml with active profiles []
+2026-02-15T16:47:49.910+05:30  INFO 8404 --- [aerospike] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Aerospike repositories in DEFAULT mode.
+2026-02-15T16:47:49.974+05:30  INFO 8404 --- [aerospike] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 1 Aerospike repository interface.
+2026-02-15T16:47:50.860+05:30  INFO 8404 --- [aerospike] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-02-15T16:47:50.879+05:30  INFO 8404 --- [aerospike] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-15T16:47:50.880+05:30  INFO 8404 --- [aerospike] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2026-02-15T16:47:50.946+05:30  INFO 8404 --- [aerospike] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-02-15T16:47:50.948+05:30  INFO 8404 --- [aerospike] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1575 ms
+2026-02-15T16:47:51.181+05:30  WARN 8404 --- [aerospike] [main] o.s.data.convert.CustomConversions       : Registering converter from class java.util.Calendar to interface java.util.Map as writing converter although it doesn't convert to a store-supported type; You might want to check your annotation setup at the converter implementation
+2026-02-15T16:47:51.182+05:30  WARN 8404 --- [aerospike] [main] o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class java.util.Calendar as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2026-02-15T16:47:51.669+05:30  INFO 8404 --- [aerospike] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2026-02-15T16:47:52.693+05:30  INFO 8404 --- [aerospike] [main] i.AerospikePersistenceEntityIndexCreator : Installed aerospike index: AerospikeIndexDefinition(name=dept_index, bin=dept, type=STRING, collectionType=DEFAULT, entityClass=class com.learning.aerospike.repository.User, ctx=null) successfully.
+2026-02-15T16:47:53.735+05:30  INFO 8404 --- [aerospike] [main] i.AerospikePersistenceEntityIndexCreator : Installed aerospike index: AerospikeIndexDefinition(name=exp_index, bin=experience, type=NUMERIC, collectionType=DEFAULT, entityClass=class com.learning.aerospike.repository.User, ctx=null) successfully.
+2026-02-15T16:47:53.741+05:30  INFO 8404 --- [aerospike] [main] c.l.aerospike.AerospikeApplication       : Started AerospikeApplication in 6.411 seconds (process running for 7.287)
+2026-02-15T16:48:14.161+05:30  INFO 8404 --- [aerospike] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-15T16:48:14.162+05:30  INFO 8404 --- [aerospike] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-15T16:48:14.164+05:30  INFO 8404 --- [aerospike] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-02-15T16:55:37.551+05:30  INFO 8404 --- [aerospike] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-15T16:55:37.606+05:30  INFO 8404 --- [aerospike] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
