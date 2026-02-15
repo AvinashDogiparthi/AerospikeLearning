@@ -59,7 +59,7 @@ The fastest way to run the app during development (avoiding the need to package 
 Option 1 :
 Bash
 ```text
-mvn spring-boot:run
+mvn spring-boot:run "-Dspring-boot.run.jvmArguments=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"
 ```
 Option 2 : 
 Bash
