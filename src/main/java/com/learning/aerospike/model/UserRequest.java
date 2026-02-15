@@ -1,31 +1,28 @@
 package com.learning.aerospike.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-
-public class User {
-    private String id;
+public class UserRequest {
+    private Integer id;
     private String name;
     private String email;
     private int experience;
+    private String department;
 
-    public User(String id, String name, String email, int experience) {
+    public UserRequest(Integer id, String name, String email, int experience) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.experience = experience;
     }
 
-    public User(){
+    public UserRequest(){
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -51,5 +48,13 @@ public class User {
 
     public void setExperience(int experience) {
         this.experience = experience;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
     }
 }
